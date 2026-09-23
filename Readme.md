@@ -1,5 +1,20 @@
-
 <div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,100:2563EB&height=220&section=header&text=Multi-Agent%20Research%20System&fontSize=52&fontColor=FFFFFF&fontAlignY=38&animation=fadeIn&desc=AI-Powered%20Automated%20Research%20Pipeline&descAlignY=58&descColor=CBD5E1&descSize=18" width="100%"/>
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3200&pause=1000&color=60A5FA&center=true&vCenter=true&width=650&lines=Search+%C2%B7+Read+%C2%B7+Write+%C2%B7+Critique;Multi-Agent+AI+Research+Automation;LangChain+%C2%B7+Hugging+Face+%C2%B7+Tavily+%C2%B7+Streamlit" alt="Typing SVG" />
+
+<br/><br/>
+
+<img src="https://img.shields.io/badge/Python-3.13%2B-0F172A?style=for-the-badge&logo=python&logoColor=3776AB&labelColor=020617&color=1E293B"/>
+<img src="https://img.shields.io/badge/LangChain-Multi--Agent-0F172A?style=for-the-badge&logo=langchain&logoColor=FFFFFF&labelColor=020617&color=1E293B"/>
+<img src="https://img.shields.io/badge/Hugging%20Face-LLM-0F172A?style=for-the-badge&logo=huggingface&logoColor=FFD21E&labelColor=020617&color=1E293B"/>
+<img src="https://img.shields.io/badge/Streamlit-UI-0F172A?style=for-the-badge&logo=streamlit&logoColor=FF4B4B&labelColor=020617&color=1E293B"/>
+
+</div>
+
 
 </a>
 
@@ -110,17 +125,17 @@ The system follows a sequential multi-agent research architecture.
 
 ### Core Components
 
-| Component     | Responsibility                             |
-| ------------- | ------------------------------------------ |
-| Search Agent  | Searches the web for relevant information  |
-| Reader Agent  | Extracts useful content from web resources |
-| Writer Chain  | Generates a structured research report     |
-| Critic Chain  | Reviews and evaluates the generated report |
-| Streamlit     | Provides the user interface                |
-| Hugging Face  | Provides the LLM inference layer           |
-| Tavily        | Provides web search capabilities           |
-| BeautifulSoup | Supports web content extraction            |
-| Requests      | Handles HTTP requests                      |
+| Component | Responsibility |
+|---|---|
+| Search Agent | Searches the web for relevant information |
+| Reader Agent | Extracts useful content from web resources |
+| Writer Chain | Generates a structured research report |
+| Critic Chain | Reviews and evaluates the generated report |
+| Streamlit | Provides the user interface |
+| Hugging Face | Provides the LLM inference layer |
+| Tavily | Provides web search capabilities |
+| BeautifulSoup | Supports web content extraction |
+| Requests | Handles HTTP requests |
 
 <br/>
 
@@ -203,3 +218,28 @@ This final evaluation acts as a quality-control layer, helping identify weakness
 ## Tech Stack
 
 <div align="center">
+
+<img src="https://img.shields.io/badge/Python-0F172A?style=for-the-badge&logo=python&logoColor=3776AB"/>
+<img src="https://img.shields.io/badge/LangChain-0F172A?style=for-the-badge&logo=langchain&logoColor=FFFFFF"/>
+<img src="https://img.shields.io/badge/LangGraph-0F172A?style=for-the-badge&logoColor=FFFFFF"/>
+<img src="https://img.shields.io/badge/Hugging%20Face-0F172A?style=for-the-badge&logo=huggingface&logoColor=FFD21E"/>
+<img src="https://img.shields.io/badge/Tavily-0F172A?style=for-the-badge&logoColor=FFFFFF"/>
+<img src="https://img.shields.io/badge/Streamlit-0F172A?style=for-the-badge&logo=streamlit&logoColor=FF4B4B"/>
+<img src="https://img.shields.io/badge/BeautifulSoup-0F172A?style=for-the-badge&logo=python&logoColor=3776AB"/>
+<img src="https://img.shields.io/badge/Requests-0F172A?style=for-the-badge&logo=python&logoColor=3776AB"/>
+<img src="https://img.shields.io/badge/Dotenv-0F172A?style=for-the-badge&logo=python&logoColor=3776AB"/>
+
+</div>
+<div align="center">
+
+## Author
+
+<img src="https://github.com/Sakshamxx.png" width="80" style="border-radius:50%; border:2px solid #E5383B;"/>
+
+**Saksham Chauhan**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Sakshamxx-1A1A1A?style=for-the-badge&logo=github&logoColor=E5383B&labelColor=FFFFFF)](https://github.com/Sakshamxx)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Saksham%20Chauhan-1A1A1A?style=for-the-badge&logo=linkedin&logoColor=E5383B&labelColor=FFFFFF)](https://www.linkedin.com/in/saksham-chauhan-b18bb5277/)
+[![Gmail](https://img.shields.io/badge/Email-sakshamchauhan003%40gmail.com-1A1A1A?style=for-the-badge&logo=gmail&logoColor=E5383B&labelColor=FFFFFF)](mailto:sakshamchauhan003@gmail.com)
+
+</div>
