@@ -53,13 +53,25 @@ Reports contain:
 
 Provides an interactive interface for running the research pipeline.
 
-### Hugging Face LLM Integration
+### Mistral and Groq LLM Integration
 
-Uses Hugging Face's model infrastructure through an OpenAI-compatible API interface.
+Search, Reader, and Writer use Mistral. The Critic uses Groq.
 
 ### Environment-Based API Configuration
 
-API credentials are loaded securely using `.env`.
+API credentials are loaded from `.env`. Search, Reader, and Writer use Mistral; the Critic uses Groq.
+
+Add these variables to the project `.env` file:
+
+```dotenv
+MISTRAL_API_KEY=your_mistral_api_key
+GROQ_API_KEY=your_groq_api_key
+TAVILY_API_KEY=your_tavily_api_key
+```
+
+Use valid provider keys. Restart Streamlit after changing `.env`; credentials are read when the app starts.
+If the UI reports HTTP 402, check the selected provider's inference credits, billing status, and access to the configured model.
+The Mistral environment variable must be named exactly `MISTRAL_API_KEY`.
 
 <br/>
 
@@ -117,7 +129,8 @@ The system follows a sequential multi-agent research architecture.
 | Writer Chain  | Generates a structured research report     |
 | Critic Chain  | Reviews and evaluates the generated report |
 | Streamlit     | Provides the user interface                |
-| Hugging Face  | Provides the LLM inference layer           |
+| Mistral       | Powers Search, Reader, and Writer          |
+| Groq          | Powers the Critic                          |
 | Tavily        | Provides web search capabilities           |
 | BeautifulSoup | Supports web content extraction            |
 | Requests      | Handles HTTP requests                      |

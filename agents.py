@@ -3,7 +3,8 @@ from langchain.agents import create_agent
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-from langchain_openai import ChatOpenAI
+from langchain_groq import ChatGroq
+from langchain_mistralai import ChatMistralAI
 
 from tools import web_search, scrape_url
 
@@ -14,16 +15,37 @@ load_dotenv()
 
 
 # --------------------------------------------------
-# Hugging Face LLM
+# Model configuration
 # --------------------------------------------------
 
-chat_model = ChatOpenAI(
-    model="openai/gpt-oss-120b:groq",
-    base_url="https://router.huggingface.co/v1",
-    api_key=os.getenv("HUGGINGFACEHUB_API_TOKEN"),
-    temperature=0.1,
-    max_tokens=512,
-)
+class MissingAPIKeyError(RuntimeError):
+    """Raised when a provider key required by a pipeline stage is missing."""
+
+
+def _required_api_key(name: str) -> str:
+    value = os.getenv(name, "").strip()
+    if not value:
+        raise MissingAPIKeyError(f"Set {name} in your project .env file.")
+    return value
+
+
+def _build_mistral_model() -> ChatMistralAI:
+    return ChatMistralAI(
+        model="ministral-3b-2512",
+        api_key=_required_api_key("MISTRAL_API_KEY"),
+        temperature=0.1,
+        max_tokens=512,
+        max_retries=2,
+    )
+
+
+def _build_groq_model() -> ChatGroq:
+    return ChatGroq(
+        model="openai/gpt-oss-120b",
+        api_key=_required_api_key("GROQ_API_KEY"),
+        temperature=0.1,
+        max_tokens=512,
+    )
 
 
 # --------------------------------------------------
@@ -33,7 +55,7 @@ chat_model = ChatOpenAI(
 def build_search_agent():
 
     return create_agent(
-        model=chat_model,
+        model=_build_mistral_model(),
         tools=[web_search]
     )
 
@@ -45,7 +67,7 @@ def build_search_agent():
 def build_reader_agent():
 
     return create_agent(
-        model=chat_model,
+        model=_build_mistral_model(),
         tools=[scrape_url]
     )
 
@@ -85,7 +107,8 @@ Be detailed, factual and professional."""
     ),
 ])
 
-writer_chain = writer_prompt | chat_model | StrOutputParser()
+def build_writer_chain():
+    return writer_prompt | _build_mistral_model() | StrOutputParser()
 
 
 # --------------------------------------------------
@@ -129,4 +152,5 @@ One line verdict:
     ),
 ])
 
-critic_chain = critic_prompt | chat_model | StrOutputParser()
+def build_critic_chain():
+    return critic_prompt | _build_groq_model() | StrOutputParser()
